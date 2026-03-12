@@ -45,3 +45,8 @@ next-env.d.ts
 
 # vscode config
 /.vscode
+
+# cloudflare
+.open-next/
+.wrangler/
+.dev.vars

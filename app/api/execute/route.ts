@@ -13,6 +13,8 @@ const languageMap: { [key: string]: string } = {
 
 export async function POST(request: Request) {
   try {
+    const { rapidApi } = config();
+
     const body = await request.json();
     const { lang, code, input } = body;
 
@@ -21,12 +23,12 @@ export async function POST(request: Request) {
     if (!apiLang) {
       return NextResponse.json(
         { error: "Unsupported programming language" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     const response = await axios.post(
-      config.rapidApi.url,
+      rapidApi.url,
       {
         langEnum: [
           "php",
@@ -53,10 +55,10 @@ export async function POST(request: Request) {
       {
         headers: {
           "x-compile": "rapidapi",
-          "X-RapidAPI-Key": config.rapidApi.key,
-          "X-RapidAPI-Host": config.rapidApi.host,
+          "X-RapidAPI-Key": rapidApi.key,
+          "X-RapidAPI-Host": rapidApi.host,
         },
-      }
+      },
     );
 
     return NextResponse.json(response.data);
@@ -65,7 +67,7 @@ export async function POST(request: Request) {
       // Forward the error message from RapidAPI
       return NextResponse.json(
         { error: error.response.data },
-        { status: error.response.status }
+        { status: error.response.status },
       );
     }
 
@@ -74,7 +76,7 @@ export async function POST(request: Request) {
         error:
           error instanceof Error ? error.message : "An unknown error occurred",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
