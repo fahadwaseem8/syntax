@@ -54,7 +54,13 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) or [https://syntax-io.vercel.app](https://syntax-io.vercel.app) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can also deploy to Cloudflare Workers using OpenNext:
+
+```bash
+npm run deploy
+```
 
 ## 📝 Usage
 
@@ -74,7 +80,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👏 Acknowledgments
 
 - [Next.js](https://nextjs.org/) team for the amazing framework
-- [Vercel](https://vercel.com/) for the hosting platform
+- [Cloudflare](https://cloudflare.com/) for the hosting platform
+- [OpenNext](https://opennext.js.org/) for the Next.js adapter
 - All contributors who help improve this project
 
 ---
